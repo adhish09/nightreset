@@ -33,7 +33,10 @@ export function SessionCard({
     router.refresh();
   }
 
-  const date = new Date(createdAt).toLocaleDateString(undefined, {
+  // Fixed locale (not `undefined`/system default) — this renders on both
+  // server and client, and a locale mismatch between them causes a
+  // hydration error since the formatted string would differ.
+  const date = new Date(createdAt).toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
     year: "numeric",

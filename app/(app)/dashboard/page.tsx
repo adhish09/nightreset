@@ -54,7 +54,7 @@ export default async function DashboardPage() {
     | undefined;
 
   const expiresLabel = entitlement
-    ? new Date(entitlement.expires_at).toLocaleDateString(undefined, {
+    ? new Date(entitlement.expires_at).toLocaleDateString("en-US", {
         month: "long",
         day: "numeric",
         year: "numeric",
@@ -101,7 +101,7 @@ export default async function DashboardPage() {
           <CardContent className="p-6">
             <p className="text-2xl font-semibold">
               {lastReset
-                ? new Date(lastReset.completed_at || lastReset.created_at).toLocaleDateString(undefined, {
+                ? new Date(lastReset.completed_at || lastReset.created_at).toLocaleDateString("en-US", {
                     month: "short",
                     day: "numeric",
                   })
