@@ -47,6 +47,16 @@ export async function getFreeSessionsUsed(userId: string): Promise<number> {
   return data.sessions_used ?? 0;
 }
 
+/**
+ * Temporary launch-day switch: set PAYWALL_ENABLED=false to give every
+ * signed-in user unlimited resets while validating demand, with no changes
+ * to the payment code paths. Flip it back to "true" (or unset it) to
+ * restore the real 1-free-then-pay flow — nothing else needs to change.
+ */
+function isPaywallEnabled(): boolean {
+  return process.env.PAYWALL_ENABLED !== "false";
+}
+
 export async function checkAccess(userId: string): Promise<AccessStatus> {
   const entitlement = await getActiveEntitlement(userId);
   if (entitlement) {
@@ -54,6 +64,11 @@ export async function checkAccess(userId: string): Promise<AccessStatus> {
   }
 
   const freeSessionsUsed = await getFreeSessionsUsed(userId);
+
+  if (!isPaywallEnabled()) {
+    return { hasAccess: true, reason: "free_session", entitlement: null, freeSessionsUsed };
+  }
+
   if (freeSessionsUsed < FREE_SESSIONS_ALLOWED) {
     return { hasAccess: true, reason: "free_session", entitlement: null, freeSessionsUsed };
   }
