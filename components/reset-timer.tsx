@@ -29,8 +29,12 @@ export function ResetTimer({
     } else {
       ambient.stop();
     }
-    return () => ambient.stop();
   }, [isMuted, isPaused]);
+
+  useEffect(() => {
+    const ambient = ambientRef.current;
+    return () => ambient.dispose();
+  }, []);
 
   const currentStep = steps[stepIndex];
 
