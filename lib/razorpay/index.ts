@@ -1,7 +1,7 @@
 import Razorpay from "razorpay";
 import crypto from "crypto";
 
-export const NIGHTRESET_PASS_PRICE_INR = 30;
+export const NIGHTRESET_PASS_PRICE_INR = 10;
 
 let instance: Razorpay | null = null;
 
