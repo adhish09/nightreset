@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --background: #05070d;
+  --foreground: #f3f5fa;
+  --card: #0b0f1a;
+  --card-foreground: #f3f5fa;
+  --muted: #10151f;
+  --muted-foreground: #8a94a6;
+  --border: #1c2333;
+  --primary: #cdd8ff;
+  --primary-foreground: #05070d;
+  --accent: #6d7dfc;
+  --accent-foreground: #f3f5fa;
+  --ring: #6d7dfc;
+  --destructive: #f2645a;
+  --radius: 1rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-sm: calc(var(--radius) - 8px);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(109, 125, 252, 0.16), transparent), var(--background);
+  color: var(--foreground);
+  min-height: 100dvh;
+}
+
+::selection {
+  background: rgba(109, 125, 252, 0.35);
+  color: var(--foreground);
+}
+
+.glow-text {
+  text-shadow: 0 0 40px rgba(109, 125, 252, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+.animate-breathe {
+  animation: breathe 6s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out both;
+}
