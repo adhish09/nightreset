@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { PricingCard } from "@/components/pricing-card";
 import { TrackView } from "@/components/track-view";
 import { Logo } from "@/components/logo";
+import { NIGHTRESET_PASS_PRICE_INR } from "@/lib/razorpay";
 
 const steps = [
   {
@@ -39,12 +40,12 @@ const faqs = [
     a: "You can explore the product and start your first reset without committing to anything upfront. We'll ask you to sign in with a simple email link before generating your reset, so it's saved and ready when you come back.",
   },
   {
-    q: "How does the ₹79 pass work?",
-    a: "₹79 gets you unlimited Night Resets for 7 days from the moment you activate it. It's a one-time payment — no subscription, no auto-renewal.",
+    q: `How does the ₹${NIGHTRESET_PASS_PRICE_INR} pass work?`,
+    a: `₹${NIGHTRESET_PASS_PRICE_INR} gets you unlimited Night Resets for 7 days from the moment you activate it. It's a one-time payment — no subscription, no auto-renewal.`,
   },
   {
     q: "What happens after 7 days?",
-    a: "Your pass simply ends. You can pick up another 7-night pass any time for ₹79.",
+    a: `Your pass simply ends. You can pick up another 7-night pass any time for ₹${NIGHTRESET_PASS_PRICE_INR}.`,
   },
   {
     q: "Is my brain dump private?",

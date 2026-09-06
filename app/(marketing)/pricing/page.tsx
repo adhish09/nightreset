@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { PricingCard } from "@/components/pricing-card";
 import { Paywall } from "@/components/paywall";
+import { NIGHTRESET_PASS_PRICE_INR } from "@/lib/razorpay";
 
 export const metadata: Metadata = {
   title: "Pricing",
-  description: "One-time ₹79 pass for 7 days of unlimited NightReset sessions.",
+  description: `One-time ₹${NIGHTRESET_PASS_PRICE_INR} pass for 7 days of unlimited NightReset sessions.`,
 };
 
 export default async function PricingPage({

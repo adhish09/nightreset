@@ -10,6 +10,7 @@ import { CheckoutButton } from "@/components/checkout-button";
 import { getAuthenticatedUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { getActiveEntitlement } from "@/lib/entitlement";
+import { NIGHTRESET_PASS_PRICE_INR } from "@/lib/razorpay";
 import { CONCERN_OPTIONS, type ConcernType, type SessionRow } from "@/types";
 
 export const metadata: Metadata = {
@@ -86,7 +87,9 @@ export default async function DashboardPage() {
               </p>
             </div>
           </div>
-          {!entitlement && <CheckoutButton>Get another 7 nights — ₹79</CheckoutButton>}
+          {!entitlement && (
+            <CheckoutButton>Get another 7 nights — ₹{NIGHTRESET_PASS_PRICE_INR}</CheckoutButton>
+          )}
         </CardContent>
       </Card>
 
