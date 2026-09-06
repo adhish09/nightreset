@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Moon } from "lucide-react";
 import { AuthForm } from "@/components/auth-form";
+import { Logo } from "@/components/logo";
 import { Card, CardContent } from "@/components/ui/card";
 import { getAuthenticatedUser } from "@/lib/auth";
 
@@ -26,7 +26,7 @@ export default async function LoginPage({
   return (
     <div className="flex min-h-dvh flex-col items-center justify-center px-4 py-12">
       <Link href="/" className="mb-8 flex items-center gap-2 text-sm font-medium tracking-tight text-muted-foreground hover:text-foreground">
-        <Moon className="h-4 w-4 text-accent" aria-hidden="true" />
+        <Logo size={22} />
         <span>NightReset</span>
       </Link>
       <Card className="w-full max-w-sm">

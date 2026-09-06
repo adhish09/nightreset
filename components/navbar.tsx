@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/logo";
 import { getAuthenticatedUser } from "@/lib/auth";
 
 export async function Navbar() {
@@ -10,7 +10,7 @@ export async function Navbar() {
     <header className="sticky top-0 z-40 border-b border-white/5 bg-background/70 backdrop-blur-md">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2 font-medium tracking-tight">
-          <Moon className="h-5 w-5 text-accent" aria-hidden="true" />
+          <Logo size={28} />
           <span>NightReset</span>
         </Link>
         <div className="flex items-center gap-2 sm:gap-4">

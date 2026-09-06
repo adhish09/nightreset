@@ -38,12 +38,18 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "NightReset",
     type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "NightReset" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "NightReset — Quiet Your Mind Before Sleep",
     description:
       "A simple 10-minute nighttime reset for racing thoughts and overthinking.",
+    images: ["/og-image.jpg"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   robots: { index: true, follow: true },
 };

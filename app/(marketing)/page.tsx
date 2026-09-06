@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PricingCard } from "@/components/pricing-card";
 import { TrackView } from "@/components/track-view";
+import { Logo } from "@/components/logo";
 
 const steps = [
   {
@@ -59,6 +60,7 @@ export default function LandingPage() {
       {/* Hero */}
       <section className="relative overflow-hidden px-4 pb-24 pt-20 sm:px-6 sm:pt-28">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <Logo size={64} className="mb-6" />
           <div className="mb-6 flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs text-muted-foreground">
             <Moon className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
             <span>A quiet 10 minutes before sleep</span>
