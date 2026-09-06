@@ -104,7 +104,10 @@ export async function generateNightReset(
     throw new Error("AI_NOT_CONFIGURED");
   }
 
-  const client = new OpenAI({ apiKey });
+  // Optional: point at any OpenAI-compatible endpoint (e.g. Groq) instead of
+  // api.openai.com. Left unset, the SDK talks to OpenAI as normal.
+  const baseURL = process.env.OPENAI_BASE_URL || undefined;
+  const client = new OpenAI({ apiKey, baseURL });
 
   const completion = await client.chat.completions.create({
     model,
